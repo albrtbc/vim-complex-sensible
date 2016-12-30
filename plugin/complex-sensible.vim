@@ -521,4 +521,9 @@ function! ChangeSpellLang()
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+" => Vim Complex-sensible                                                        
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+" Auto-fold docstrings                                                           
+autocmd FileType python setlocal foldenable foldmethod=syntax                    
+set foldtext=getline(v:foldstart+1)  

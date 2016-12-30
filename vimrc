@@ -20,7 +20,7 @@ Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/mhinz/vim-startify.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/posva/vim-vue'
-Plug 'https://github.com/marblestation/vim-complex-sensible.git'
+Plug 'https://github.com/bertobc/vim-complex-sensible.git'
 
 " Add plugins to &runtimepath
 call plug#end()

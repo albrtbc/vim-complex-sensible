@@ -10,7 +10,7 @@ mkdir -p .vim/autoload/
 cd $HOME/.vim/autoload
 wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cd $HOME/
-wget https://raw.githubusercontent.com/marblestation/vim-complex-sensible/master/vimrc -O .vim/vimrc
+wget https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/vimrc -O .vim/vimrc
 ln -s .vim/vimrc .vimrc
 cd $HOME/.vim/spell/
 wget http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl
