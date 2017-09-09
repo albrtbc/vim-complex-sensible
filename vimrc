@@ -22,6 +22,7 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 "Plug 'https://github.com/posva/vim-vue'
 Plug 'https://github.com/darthmall/vim-vue'
 Plug 'https://github.com/bertobc/vim-complex-sensible.git'
+Plug 'https://github.com/kien/ctrlp.vim.git'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -190,4 +191,13 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 "<Leader>ww : Select first available.
 "<Leader>ws : List and select available wikis.
 "<C-Space> : Toggle todo list element
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ctrlp.Vim plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_map = '<c-o>'
+let g:ctrlp_cmd = 'CtrlP'
+map  <Leader>o :CtrlPLine<cr>
 
