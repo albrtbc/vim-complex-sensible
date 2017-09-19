@@ -23,6 +23,7 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/darthmall/vim-vue'
 Plug 'https://github.com/bertobc/vim-complex-sensible.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'https://github.com/xolox/vim-session'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -201,3 +202,11 @@ let g:ctrlp_map = '<c-o>'
 let g:ctrlp_cmd = 'CtrlP'
 map  <Leader>o :CtrlPLine<cr>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VimSession plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>gs :SaveSession<cr>
+nnoremap <leader>go :OpenSession<cr>
+nnoremap <leader>gd :DeleteSession<cr>
+:let g:session_autosave = 'no'
+:let g:session_default_overwrite = 1
