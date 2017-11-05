@@ -23,6 +23,7 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/darthmall/vim-vue'
 Plug 'https://github.com/bertobc/vim-complex-sensible.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
+Plug 'https://github.com/xolox/vim-misc'
 Plug 'https://github.com/xolox/vim-session'
 
 " Add plugins to &runtimepath
