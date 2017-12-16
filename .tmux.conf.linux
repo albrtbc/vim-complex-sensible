@@ -63,7 +63,7 @@ setw -g mode-keys vi
 #setw -g mode-mouse on
 setw -g monitor-activity on
 
-set-option -g status-utf8 on
+#set-option -g status-utf8 on
 # set-option -g status-justify centre
 set-option -g status-justify left
 set-option -g status-bg black
