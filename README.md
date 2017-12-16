@@ -4,13 +4,13 @@ A vim configuration adapted to my workflow. The plugin can be automatically load
 
 **Linux environment:**
 ```bash
-curl https://raw.githubusercontent.com/marblestation/vim-complex-sensible/master/bin/install.sh -sSf | sh && reset
-curl https://raw.githubusercontent.com/marblestation/vim-complex-sensible/master/bin/install-dictionaries.sh -sSf | sh
+curl https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/bin/install.sh -sSf | sh && reset
+curl https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/bin/install-dictionaries.sh -sSf | sh
 ```
 
 **Windows environment:**
 ```bash
-curl https://raw.githubusercontent.com/marblestation/vim-complex-sensible/master/bin/install-win.sh -sSf | sh && reset
-curl https://raw.githubusercontent.com/marblestation/vim-complex-sensible/master/bin/install-dictionaries.sh -sSf | sh
+curl https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/bin/install-win.sh -sSf | sh && reset
+curl https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/bin/install-dictionaries.sh -sSf | sh
 ```
 
