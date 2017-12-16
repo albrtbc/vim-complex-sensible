@@ -12,6 +12,7 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 "Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/w0rp/ale'
@@ -143,6 +144,23 @@ let g:ale_open_list = 0
 map <leader>at :ALEToggle<CR>
 let g:ale_set_signs = 0
 let g:ale_set_highlights = 1"
+
+
+""""""""""""""""""""""""""""""
+" => vim-multiple-cursors plugin
+""""""""""""""""""""""""""""""
+" Use :MultipleCursorsFind pattern
+"
+" Select a word in visual mode, press C-n to find repetition and press c to
+" change or other vim
+let g:multi_cursor_next_key='<C-n>' " Next
+let g:multi_cursor_prev_key='<C-p>' " Previous
+let g:multi_cursor_skip_key='<C-x>' " Discard current
+let g:multi_cursor_quit_key='<Esc>'
+" In Insert mode will not quit
+" and delete all existing cursors. This is useful if you want to press Escape
+" and go back to Normal mode, and still be able to operate on all the cursors.
+let g:multi_cursor_exit_from_insert_mode = 0
 
 
 """"""""""""""""""""""""""""""
