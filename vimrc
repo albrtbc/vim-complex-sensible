@@ -136,9 +136,11 @@ let g:airline#extensions#ale#enabled = 1
 " Moving between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+map <leader>at :ALEToggle<CR>
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
+map <leader>at :ALEToggle<CR>
 let g:ale_set_signs = 0
 let g:ale_set_highlights = 1"
 
