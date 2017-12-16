@@ -4,12 +4,17 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/LaTeX-Box-Team/LaTeX-Box.git'
+Plug 'https://github.com/altercation/vim-colors-solarized'
+Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/rbgrouleff/bclose.vim.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
-Plug 'https://github.com/scrooloose/syntastic.git'
+"Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/bling/vim-airline'
@@ -61,6 +66,8 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 "let g:airline_section_z=''
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#whitespace#enabled = 0 " Do not check for trailing whitespaces
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -89,6 +96,13 @@ let g:NERDCustomDelimiters = {'python': {'left': '#'}}
 
 
 """"""""""""""""""""""""""""""
+" => gitgutter plugin
+ """"""""""""""""""""""""""""""
+ let g:gitgutter_enabled = 0
+ map <Leader>gg :GitGutterToggle<cr>
+
+
+""""""""""""""""""""""""""""""
 " => tagbar plugin
 """"""""""""""""""""""""""""""
 " It needs exuberant-ctags
@@ -112,15 +126,42 @@ let g:tagbar_type_idlang = {
 
 
 """"""""""""""""""""""""""""""
-" => Syntastic plugin
+" => ALE plugin
 """"""""""""""""""""""""""""""
-let g:syntastic_check_on_open=0
-let g:syntastic_loc_list_height=5
-let g:syntastic_enable_signs=0
-let g:syntastic_auto_loc_list=0
-"let g:syntastic_auto_loc_list=1
-"let g:syntastic_auto_loc_list=2
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+"" run linters only when I save files
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
+" Moving between errors
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 0
+let g:ale_set_signs = 0
+let g:ale_set_highlights = 1"
 
+
+""""""""""""""""""""""""""""""
+" => fzf plugin
+""""""""""""""""""""""""""""""
+nmap <Leader>zz :Buffers<CR>
+nmap <Leader>zf :Files<CR>
+" Commands
+"Files [PATH]	Files (similar to :FZF)
+"GFiles [OPTS]	Git files (git ls-files)
+"GFiles?	Git files (git status)
+"Buffers	Open buffers
+"Colors	Color schemes
+"Ag [PATTERN]	ag search result (ALT-A to select all, ALT-D to deselect all)
+"Tags [QUERY]	Tags in the project (ctags -R)
+"BTags [QUERY]	Tags in the current buffer
+"Marks	Marks
+"Locate PATTERN	locate command output
+"History	v:oldfiles and open buffers
+"History:	Command history
+"History/	Search history
 
 """"""""""""""""""""""""""""""
 " => Easy motion plugin
@@ -193,6 +234,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 "<Leader>ww : Select first available.
 "<Leader>ws : List and select available wikis.
 "<C-Space> : Toggle todo list element
+
+let g:vimwiki_conceallevel = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
