@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/LaTeX-Box-Team/LaTeX-Box.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/jiangmiao/auto-pairs'
@@ -11,7 +10,6 @@ Plug 'https://github.com/rbgrouleff/bclose.vim.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
-"Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'https://github.com/junegunn/fzf.vim'
@@ -25,7 +23,6 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/mhinz/vim-startify.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
-"Plug 'https://github.com/posva/vim-vue'
 Plug 'https://github.com/darthmall/vim-vue'
 Plug 'https://github.com/bertobc/vim-complex-sensible.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
