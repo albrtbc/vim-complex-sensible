@@ -10,4 +10,10 @@ curl -o $HOME/.vim/vimrc https://raw.githubusercontent.com/bertobc/vim-complex-s
 curl -o $HOME/.gitconfig https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/.gitconfig
 curl -o $HOME/.tmux.conf https://raw.githubusercontent.com/bertobc/vim-complex-sensible/master/.tmux.conf.linux
 ln -sf $HOME/.vim/vimrc $HOME/.vimrc
-vim +"PlugInstall 1" +qall
+if [ -d "${HOME}/.vim/" ] || [ -f "${HOME}/.vimrc" ] ; then
+  echo "There is already a vim configuration in place! PlugUpdate:"
+  vim +"PlugUpdate 1" +qall
+else
+  echo "New installation! PlugInstall:"
+  vim +"PlugInstall 1" +qall
+fi
