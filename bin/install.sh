@@ -2,12 +2,6 @@
 set -u
 set -e
 
-if [ -d "${HOME}/.vim/" ] || [ -f "${HOME}/.vimrc" ] ; then
-  echo "There is already a vim configuration in place! You can remove it first with:"
-  echo "rm -rf ${HOME}/.vim/ ${HOME}/.vimrc"
-  exit 1
-fi
-
 set -x
 mkdir -p $HOME/.vim/undodir/
 mkdir -p $HOME/.vim/autoload/
