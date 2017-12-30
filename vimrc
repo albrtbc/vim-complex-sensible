@@ -3,8 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/LaTeX-Box-Team/LaTeX-Box.git'
-Plug 'https://github.com/altercation/vim-colors-solarized'
+"Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/rbgrouleff/bclose.vim.git'
@@ -62,7 +61,7 @@ let g:maplocalleader = ","
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='solarized'
+let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 "let g:airline_section_z=''
