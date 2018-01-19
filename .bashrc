@@ -64,16 +64,16 @@ if [ "$color_prompt" = yes ]; then
 	# http://unix.stackexchange.com/questions/88307/escape-sequences-with-echo-e-in-different-shells
 	function markup_git_branch {
 		if [[ "x$1" = "x" ]]; then
-			echo -e "[$1]"
+			echo -e "$1"
 		else
 			if [[ $(git status 2> /dev/null | tail -n1) = "nothing to commit, working tree clean" ]]; then
-				echo -e '\033[1;32m['"$1"']\033[0;00m'
+				echo -e ' \033[1;32m['"$1"']'
 			else
-				echo -e '\033[01;31m['"$1"'*]\033[00m'
+				echo -e ' \033[01;31m['"$1"'*]'
 			fi
 		fi
 	}
-	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w $(markup_git_branch $(git_branch))\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(markup_git_branch $(git_branch))\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
