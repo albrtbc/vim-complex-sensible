@@ -26,4 +26,4 @@ else
   vim +"PlugInstall" +qall
 fi
 
-apt-get install vim tmux slack-term -y
+sudo apt-get install vim tmux slack-term -y
