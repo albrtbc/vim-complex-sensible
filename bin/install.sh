@@ -25,5 +25,3 @@ else
   echo "New installation! PlugInstall:"
   vim +"PlugInstall" +qall
 fi
-
-sudo apt-get install vim tmux slack-term -y
