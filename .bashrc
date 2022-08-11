@@ -67,13 +67,13 @@ if [ "$color_prompt" = yes ]; then
 			echo -e "$1"
 		else
 			if [[ $(git status 2> /dev/null | tail -n1) = "nothing to commit, working tree clean" ]]; then
-				echo -e ' \033[1;32m['"$1"']'
+				echo -e ' \033[00;32m['"$1"']'
 			else
 				echo -e ' \033[01;31m['"$1"'*]'
 			fi
 		fi
 	}
-	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(markup_git_branch $(git_branch))\[\033[00m\]\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(markup_git_branch $(git_branch))\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -101,7 +101,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=00;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
