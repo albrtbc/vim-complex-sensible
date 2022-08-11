@@ -289,3 +289,17 @@ else
     let &t_EI .= "\<Esc>[1 q"
     autocmd VimLeave * silent !echo -ne "\033[0 q"
 endif
+
+
+" Changing to auto paste automatically
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+~
