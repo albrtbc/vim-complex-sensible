@@ -271,3 +271,21 @@ nnoremap <leader>go :OpenSession<cr>
 nnoremap <leader>gd :DeleteSession<cr>
 :let g:session_autosave = 'no'
 :let g:session_default_overwrite = 1
+
+" Changing cursor shape per mode
+" " 1 or 0 -> blinking block
+" " 2 -> solid block
+" " 3 -> blinking underscore
+" " 4 -> solid underscore
+" if exists('$TMUX')
+"     " tmux will only forward escape sequences to the terminal if surrounded
+if exists('$TMUX')
+    " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
+    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[1 q\<Esc>\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+    let &t_SI .= "\<Esc>[5 q"
+    let &t_EI .= "\<Esc>[1 q"
+    autocmd VimLeave * silent !echo -ne "\033[0 q"
+endif
