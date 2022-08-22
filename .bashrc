@@ -138,5 +138,16 @@ fi
 #GIT_PROMPT_ONLY_IN_REPO=1
 #source ~/.bash-git-prompt/gitprompt.sh
 
-# slack-term                                                                     
-alias slack='slack-term --config $HOME/snap/slack-term/current/slack-term.json'  
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+" => Git helper
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+git-reset(){
+    local current_branch="$(git branch --show-current)"
+
+    git fetch
+    git pull
+    git switch $1
+    git pull
+    git switch $current_branch
+    git reset --soft $1
+}
