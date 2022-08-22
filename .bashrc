@@ -143,6 +143,7 @@ fi
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
 git-reset(){
     local current_branch="$(git branch --show-current)"
+    echo "Reset soft from $current_branch to $1 branch..."
 
     git fetch
     git pull
