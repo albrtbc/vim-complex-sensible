@@ -527,3 +527,17 @@ endfunction
 " Auto-fold docstrings                                                           
 autocmd FileType python setlocal foldenable foldmethod=syntax                    
 set foldtext=getline(v:foldstart+1)  
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+" => Git helper
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+git-reset(){
+    local current_branch="$(git branch --show-current)"
+
+    git fetch
+    git pull
+    git switch $1
+    git pull
+    git switch $current_branch
+    git reset --soft $1
+}
