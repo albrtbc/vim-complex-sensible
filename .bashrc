@@ -58,22 +58,20 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	function git_branch {
-		git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
-	}
-	# http://unix.stackexchange.com/questions/88307/escape-sequences-with-echo-e-in-different-shells
-	function markup_git_branch {
-		if [[ "x$1" = "x" ]]; then
-			echo -e "$1"
-		else
-			if [[ $(git status 2> /dev/null | tail -n1) = "nothing to commit, working tree clean" ]]; then
-                echo -e " \001\033[00;32m[$1]"
-			else
-                echo -e " \001\033[01;31m[$1*]"
-			fi
-		fi
-	}
-	export PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(markup_git_branch $(git_branch))\[\033[00m\]\$ '
+    markup_git_branch() {
+      if [[ -n $@ ]]; then
+        if [[ -z $(git status --porcelain 2> /dev/null) ]]; then
+          echo -e "[$@ \001\033[32;1m\002●\001\033[0m\002]"
+        else
+          echo -e "[$@ \001\033[31;1m\002●\001\033[0m\002]"
+        fi
+      fi
+    }
+    parse_git_branch() {
+      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* (*\([^)]*\))*/\1/'
+    }
+
+    export PS1="\[\033[00;32m\]\u:\[\033[01;34m\]\w \[\033[00;30m\]\$(markup_git_branch \$(parse_git_branch))\[\033[31;1m\]⟩\[\033[32;1m\]⟩\[\033[33;1m\]⟩\[\033[0m\] "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
