@@ -67,9 +67,9 @@ if [ "$color_prompt" = yes ]; then
 			echo -e "$1"
 		else
 			if [[ $(git status 2> /dev/null | tail -n1) = "nothing to commit, working tree clean" ]]; then
-				echo -e ' \033[00;32m['"$1"']'
+                echo -e " \001\033[00;32m[$1]"
 			else
-				echo -e ' \033[01;31m['"$1"'*]'
+                echo -e " \001\033[01;31m[$1*]"
 			fi
 		fi
 	}
@@ -138,9 +138,7 @@ fi
 #GIT_PROMPT_ONLY_IN_REPO=1
 #source ~/.bash-git-prompt/gitprompt.sh
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
-" => Git helper
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
+# git functions
 git-reset(){
     local current_branch="$(git branch --show-current)"
     echo "Reset soft from $current_branch to $1 branch..."
@@ -151,4 +149,31 @@ git-reset(){
     git pull
     git switch $current_branch
     git reset --soft $1
+}
+
+git-push(){
+    echo "Pulling..."
+    git pull
+    git add .
+    git commit -m "$1"
+    echo "Pushing..."
+    git push
+}
+
+# This solves windows slow git on ntfs filesystem
+# checks to see if we are in a windows or linux dir
+function isWinDir {
+  case $PWD/ in
+    /mnt/*) return $(true);;
+    *) return $(false);;
+  esac
+}
+# wrap the git command to either run windows git or linux
+function git {
+  if isWinDir
+  then
+    git.exe "$@"
+  else
+    /usr/bin/git "$@"
+  fi
 }
