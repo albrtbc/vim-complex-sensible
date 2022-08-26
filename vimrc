@@ -303,15 +303,3 @@ function! XTermPasteBegin()
   return ""
 endfunction
 
-" WSL yank support
-set clipboard=unnamed
-
-autocmd TextYankPost * call system('win32yank.exe -i --crlf', @")
-
-function! Paste(mode)
-    let @" = system('win32yank.exe -o --lf')
-    return a:mode
-endfunction
-
-map <expr> p Paste('p')
-map <expr> P Paste('P')
