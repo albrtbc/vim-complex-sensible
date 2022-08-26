@@ -21,7 +21,7 @@ else
   vim +"PlugInstall" +qall
 fi
 
-if [[ -d "/run/WSL" ]];
+if [ -d "/run/WSL" ];
 then
     # clip shared for windows
     echo "Installing win32yank - clip sharing between wsl and windows"
