@@ -1,6 +1,9 @@
 # start a non-login shell by default for each new window                         
 set -g default-command 'bash'                                                    
                                                                                  
+# set default terminal
+set -g default-terminal "xterm-256color"
+                                                                                 
 # Update environment variables (they should be manually updated in bash)         
 set -g update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
 #                                                                                
