@@ -129,21 +129,6 @@ let g:ale_set_signs = 0
 let g:ale_set_highlights = 1
 
 
-"""""""""""""""""""""""""""""""
-"" => vim-multiple-cursors plugin
-"""""""""""""""""""""""""""""""
-"" Use :MultipleCursorsFind pattern
-""
-"" Select a word in visual mode, press C-n to find repetition and press c to
-"" change or other vim
-"let g:multi_cursor_next_key='<C-n>' " Next
-"let g:multi_cursor_prev_key='<C-p>' " Previous
-"let g:multi_cursor_skip_key='<C-x>' " Discard current
-"let g:multi_cursor_quit_key='<Esc>'
-"" In Insert mode will not quit
-"" and delete all existing cursors. This is useful if you want to press Escape
-"" and go back to Normal mode, and still be able to operate on all the cursors.
-"let g:multi_cursor_exit_from_insert_mode = 0
 """"""""""""""""""""""""""""""
 " => vim-visual-multi plugin
 """"""""""""""""""""""""""""""
@@ -207,25 +192,6 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-bd-w)
 map  <Leader>e <Plug>(easymotion-bd-e)
 nmap <Leader>e <Plug>(easymotion-bd-e)
-
-
-""""""""""""""""""""""""""""""
-" => Latex-Box plugin
-""""""""""""""""""""""""""""""
-" * Requires latexmk (apt-get install latexmk)
-"let g:LatexBox_quickfix = 0 " The quickfix is not opened automatically
-let g:LatexBox_quickfix = 1 " The quickfix window is opened automatically and it becomes active
-let g:LatexBox_show_warnings = 0 " If set to 1, warnings in compilation will be listed as errors.
-"let g:LatexBox_ref_pattern  = '\C\\v\?\(eq\|page\|[cC]\)\?ref\*\?\_\s*{' " Default
-let g:LatexBox_ref_pattern  = '\C\\v\?\(eq\|page\|[cC]\)\?\(ref\|sect\|tab\|fig\)\*\?\_\s*{' " Include also \sect, \tab and \fig
-" Compilation:
-"<LocalLeader>ll Compile with latexmk.
-"<LocalLeader>lc Clean temporary output from LaTeX
-"<LocalLeader>lv View output file.
-"<LocalLeader>lt Open a table of contents.
-" Autocompletion:
-"\cite{<CTRL-X><CTRL-O>
-"\ref{sec:<CTRL-X><CTRL-O>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
