@@ -25,3 +25,13 @@ else
   echo "New installation! PlugInstall:"
   vim +"PlugInstall" +qall
 fi
+
+if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
+then
+    echo "Installing win32yank - clip sharing between wsl and windows"
+    # clip shared for windows
+    curl -sLo /tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+    unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+    chmod +x /tmp/win32yank.exe
+    sudo mv /tmp/win32yank.exe /usr/local/bin/
+fi
