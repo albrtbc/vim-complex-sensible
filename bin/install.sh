@@ -10,7 +10,7 @@ curl -o $HOME/.vim/vimrc https://raw.githubusercontent.com/albrtbc/vim-complex-s
 curl -o $HOME/.gitconfig https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.gitconfig
 curl -o $HOME/.bashrc https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.bashrc
 curl -o $HOME/.tmux.conf https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.tmux.conf.linux
-#fi
+
 ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 if [ -d "${HOME}/.vim/" ] || [ -f "${HOME}/.vimrc" ] ; then
   echo "There is already a vim configuration in place! PlugUpdate:"
@@ -26,7 +26,9 @@ then
     # append to vimrc
     echo "Append vimrc.windows functions into vimrc"
     curl -o $HOME/.vim/vimrc.windows https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/vimrc.windows
-    cat $HOME/.vim/vimrc $HOME/.vim/vimrc.windows > $HOME/.vim/vimrc
+    cat $HOME/.vim/vimrc.windows >> $HOME/.vim/vimrc
+    rm $HOME/.vim/vimrc.windows
+
     # clip shared for windows
     echo "Installing win32yank - clip sharing between wsl and windows"
     curl -sLo /tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
