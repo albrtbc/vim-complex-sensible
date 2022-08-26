@@ -3,26 +3,21 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-"Plug 'https://github.com/altercation/vim-colors-solarized'
-Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/rbgrouleff/bclose.vim.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
-Plug 'https://github.com/terryma/vim-multiple-cursors'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/w0rp/ale'
+"Plug 'https://github.com/terryma/vim-multiple-cursors'
+Plug 'https://github.com/mg979/vim-visual-multi'
+Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/bling/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/Lokaltog/vim-easymotion'
-Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/mhinz/vim-startify.git'
-Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/darthmall/vim-vue'
 Plug 'https://github.com/bertobc/vim-complex-sensible.git'
 Plug 'https://github.com/kien/ctrlp.vim.git'
@@ -94,13 +89,6 @@ let g:NERDCustomDelimiters = {'python': {'left': '#'}}
 
 
 """"""""""""""""""""""""""""""
-" => gitgutter plugin
- """"""""""""""""""""""""""""""
- let g:gitgutter_enabled = 0
- map <Leader>gg :GitGutterToggle<cr>
-
-
-""""""""""""""""""""""""""""""
 " => tagbar plugin
 """"""""""""""""""""""""""""""
 " It needs exuberant-ctags
@@ -134,51 +122,48 @@ let g:airline#extensions#ale#enabled = 1
 " Moving between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-map <leader>at :ALEToggle<CR>
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
-map <leader>at :ALEToggle<CR>
 let g:ale_set_signs = 0
-let g:ale_set_highlights = 1"
+let g:ale_set_highlights = 1
 
 
+"""""""""""""""""""""""""""""""
+"" => vim-multiple-cursors plugin
+"""""""""""""""""""""""""""""""
+"" Use :MultipleCursorsFind pattern
+""
+"" Select a word in visual mode, press C-n to find repetition and press c to
+"" change or other vim
+"let g:multi_cursor_next_key='<C-n>' " Next
+"let g:multi_cursor_prev_key='<C-p>' " Previous
+"let g:multi_cursor_skip_key='<C-x>' " Discard current
+"let g:multi_cursor_quit_key='<Esc>'
+"" In Insert mode will not quit
+"" and delete all existing cursors. This is useful if you want to press Escape
+"" and go back to Normal mode, and still be able to operate on all the cursors.
+"let g:multi_cursor_exit_from_insert_mode = 0
 """"""""""""""""""""""""""""""
-" => vim-multiple-cursors plugin
+" => vim-visual-multi plugin
 """"""""""""""""""""""""""""""
 " Use :MultipleCursorsFind pattern
 "
-" Select a word in visual mode, press C-n to find repetition and press c to
-" change or other vim
-let g:multi_cursor_next_key='<C-n>' " Next
-let g:multi_cursor_prev_key='<C-p>' " Previous
-let g:multi_cursor_skip_key='<C-x>' " Discard current
-let g:multi_cursor_quit_key='<Esc>'
-" In Insert mode will not quit
-" and delete all existing cursors. This is useful if you want to press Escape
-" and go back to Normal mode, and still be able to operate on all the cursors.
-let g:multi_cursor_exit_from_insert_mode = 0
-
-
-""""""""""""""""""""""""""""""
-" => fzf plugin
-""""""""""""""""""""""""""""""
-nmap <Leader>zz :Buffers<CR>
-nmap <Leader>zf :Files<CR>
-" Commands
-"Files [PATH]	Files (similar to :FZF)
-"GFiles [OPTS]	Git files (git ls-files)
-"GFiles?	Git files (git status)
-"Buffers	Open buffers
-"Colors	Color schemes
-"Ag [PATTERN]	ag search result (ALT-A to select all, ALT-D to deselect all)
-"Tags [QUERY]	Tags in the project (ctags -R)
-"BTags [QUERY]	Tags in the current buffer
-"Marks	Marks
-"Locate PATTERN	locate command output
-"History	v:oldfiles and open buffers
-"History:	Command history
-"History/	Search history
+" Select a word in visual mode, press C-n to find repetition
+let g:VM_theme = 'sand'
+let g:VM_highlight_matches = ''
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"]   = '<C-j>'
+let g:VM_maps["Add Cursor Up"]     = '<C-k>'
+let g:VM_maps["Add Cursor At Pos"] = '\\\'
+let g:VM_maps["Find Next"] = '<c-n>'
+let g:VM_maps["Find Prev"] = '<c-p>'
+let g:VM_maps["Skip Region"] = '<c-x>'
+let g:VM_maps["Switch Mode"] = '<Tab>' " switch between cursor and extend/visual mode
+let g:VM_case_setting = 'sensitive'
+let g:VM_use_first_cursor_in_line = 0
+let g:VM_skip_shorter_lines = 1
+let g:VM_single_mode_auto_reset = 0
 
 """"""""""""""""""""""""""""""
 " => Easy motion plugin
@@ -241,18 +226,6 @@ let g:LatexBox_ref_pattern  = '\C\\v\?\(eq\|page\|[cC]\)\?\(ref\|sect\|tab\|fig\
 " Autocompletion:
 "\cite{<CTRL-X><CTRL-O>
 "\ref{sec:<CTRL-X><CTRL-O>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vimwiki plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
-"<Leader>ww : Select first available.
-"<Leader>ws : List and select available wikis.
-"<C-Space> : Toggle todo list element
-
-let g:vimwiki_conceallevel = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
