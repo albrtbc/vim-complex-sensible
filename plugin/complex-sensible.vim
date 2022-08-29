@@ -142,6 +142,9 @@ endtry
 
 set background=dark
 
+" Set visual selection color
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
 " Set extra options when running in GUI mode
 if has("gui_running")
     try
