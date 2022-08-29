@@ -175,3 +175,9 @@ function git {
     /usr/bin/git "$@"
   fi
 }
+
+# Start bc weith pi defined
+alias bc='bc -v; bc -lq <(echo "pi=5*a(1)")'
+
+# When leaves ranger keeps in current directory
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
