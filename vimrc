@@ -23,8 +23,6 @@ Plug 'https://github.com/bertobc/vim-complex-sensible'
 Plug 'https://github.com/ctrlpvim/ctrlp'
 Plug 'https://github.com/xolox/vim-misc'
 Plug 'https://github.com/xolox/vim-session'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'https://github.com/junegunn/fzf.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -212,13 +210,6 @@ nnoremap <leader>go :OpenSession<cr>
 nnoremap <leader>gd :DeleteSession<cr>
 :let g:session_autosave = 'no'
 :let g:session_default_overwrite = 1
-
-
-""""""""""""""""""""""""""""""
-" => fzf plugin
-" => vim-visual-multi plugin
-""""""""""""""""""""""""""""""
-nmap <C-t> :Files<CR>
 
 
 " Changing cursor shape per mode
