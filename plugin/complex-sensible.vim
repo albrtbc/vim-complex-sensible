@@ -53,6 +53,8 @@ nnoremap <leader>tm :call ToggleMouse()<CR>
 
 " Troggle wrapping
 " - For moving within wrapped lines use g[cursor] in normal mode
+Shortcut Toggle wrapping
+      \ noremap <silent> <leader>tw :Shortcuts<CR>
 map <leader>tw :set nowrap! <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,10 +142,10 @@ try
 catch
 endtry
 
-set background=dark
+set background=light
 
 " Set visual selection color
-hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+hi Visual cterm=reverse ctermbg=lightgrey ctermfg=cyan
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -285,16 +287,19 @@ map <M-Left> <C-W>h
 map <M-Right> <C-W>l
 
 " Buffer shortcuts
+Shortcut Switch to next tab / buffer
+      \ noremap <silent> <c-n> :Shortcuts<CR>
+Shortcut Switch to previoius tab / buffer
+      \ noremap <silent> <c-p> :Shortcuts<CR>
 nmap <C-Left> :bprevious!<cr>
 nmap <C-Right> :bnext!<cr>
 nmap <C-p> :bprevious!<cr>
 nmap <C-n> :bnext!<cr>
 " Close the current buffer (also mapped to <leader>bd in the same 'bclose'
 " plugin)
+Shortcut Close current tab / buffer
+      \ noremap <silent> <c-p> :Shortcuts<CR>
 map <leader>bc :Bclose<cr>
-
-" Quickly open a buffer for scripbble
-"map <leader>q :e ~/buffer<cr>
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -440,7 +445,7 @@ omap s :normal vs<CR>
 
 
 " c-p completion colors
-highlight Pmenu ctermbg=lightyellow ctermfg=black gui=bold
+highlight Pmenu ctermbg=lightblue ctermfg=black gui=bold
 highlight PmenuSel ctermbg=black ctermfg=white gui=bold
 
 
@@ -529,5 +534,5 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""                  
 " Auto-fold docstrings                                                           
 autocmd FileType python setlocal foldenable foldmethod=syntax                    
-set foldtext=getline(v:foldstart+1)  
+set foldtext=getline(v:foldstart+1)
 
