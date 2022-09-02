@@ -6,12 +6,18 @@ set -x
 add-apt-repository ppa:neovim-ppa/stable
 apt update
 
+apt install neovim
+
+mkdir -p ~/.config/nvim/lue
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 curl -o $HOME/.config/nvim/init.vim https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/init.vim
+curl -o $HOME/.config/nvim/init2.vim https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/plugin/complex-sensible.vim
+cat $HOME/.config/nvim/init2.vim >> $HOME/.config/nvim/init.vim
+rm $HOME/.config/nvim/init2.vim
 curl -o $HOME/.gitconfig https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.gitconfig
 curl -o $HOME/.bashrc https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.bashrc
-curl -o $HOME/.tmux.conf https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.tmux.conf.linux
+curl -o $HOME/.tmux.conf https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.tmux.conf
 
 #ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 nvim +"PlugInstall" +qall
