@@ -198,19 +198,6 @@ function! XTermPasteBegin()
   return ""
 endfunction
 
-" WSL yank support
-set clipboard=unnamed
-
-autocmd TextYankPost * call system('win32yank.exe -i --crlf', @")
-
-function! Paste(mode)
-    let @" = system('win32yank.exe -o --lf')
-    return a:mode
-endfunction
-
-map <expr> p Paste('p')
-map <expr> P Paste('P')
-
 " Jumping in historic positions list
 " Type +1 to jump newer -1/1 to jump older
 " Also you can use g; and g, to move bakcward and forward in your edit
