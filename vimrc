@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " =>  Vim-Plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
@@ -8,7 +8,6 @@ Plug 'https://github.com/rbgrouleff/bclose.vim'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/rust-lang/rust.vim'
-"Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/mg979/vim-visual-multi'
 Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/majutsushi/tagbar'
@@ -23,6 +22,8 @@ Plug 'https://github.com/bertobc/vim-complex-sensible'
 Plug 'https://github.com/kien/ctrlp.vim'
 Plug 'https://github.com/xolox/vim-misc'
 Plug 'https://github.com/xolox/vim-session'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'https://github.com/junegunn/fzf.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -210,6 +211,14 @@ nnoremap <leader>go :OpenSession<cr>
 nnoremap <leader>gd :DeleteSession<cr>
 :let g:session_autosave = 'no'
 :let g:session_default_overwrite = 1
+
+
+""""""""""""""""""""""""""""""
+" => fzf plugin
+" => vim-visual-multi plugin
+""""""""""""""""""""""""""""""
+nmap <C-t> :Files<CR>
+
 
 " Changing cursor shape per mode
 " " 1 or 0 -> blinking block
