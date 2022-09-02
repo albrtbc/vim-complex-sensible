@@ -6,8 +6,3 @@ A vim configuration adapted to my workflow. The plugin can be automatically load
 curl https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/bin/install.sh -sSf | sudo sh && reset
 curl https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/bin/install-dictionaries.sh -sSf | sh
 ```
-For neovim:
-```bash
-curl https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/bin/install-neovim.sh -sSf | sudo sh && reset
-curl https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/bin/install-dictionaries.sh -sSf | sh
-```
