@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " =>  Vim-Plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
@@ -7,10 +7,8 @@ Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/rbgrouleff/bclose.vim'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/scrooloose/nerdtree'
-Plug 'https://github.com/rust-lang/rust.vim'
 Plug 'https://github.com/mg979/vim-visual-multi'
 Plug 'https://github.com/dense-analysis/ale'
-Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/bling/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
@@ -18,15 +16,16 @@ Plug 'https://github.com/Lokaltog/vim-easymotion'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/mhinz/vim-startify'
 Plug 'https://github.com/darthmall/vim-vue'
-Plug 'https://github.com/bertobc/vim-complex-sensible'
-Plug 'https://github.com/kien/ctrlp.vim'
+Plug 'https://github.com/albrtbc/vim-complex-sensible'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/xolox/vim-misc'
 Plug 'https://github.com/xolox/vim-session'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/sunaku/vim-shortcut'
+Plug 'https://github.com/junegunn/fzf'
 
 " Add plugins to &runtimepath
 call plug#end()
+runtime plugin/shortcut.vim
 
 " To automaticlly download everything:
 "   :PlugInstall
@@ -69,6 +68,8 @@ let g:airline#extensions#whitespace#enabled = 0 " Do not check for trailing whit
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Shortcut Open NerdTree menu
+      \ noremap <silent> <Leader>nf :Shortcuts<CR>
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen=1
@@ -81,35 +82,6 @@ let NERDTreeShowHidden=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDSpaceDelims=0
 let g:NERDCustomDelimiters = {'python': {'left': '#'}}
-
-""""""""""""""""""""""""""""""
-" => Starify plugin
-""""""""""""""""""""""""""""""
-" Requires the following alias:
-"alias vi='vim'
-
-
-""""""""""""""""""""""""""""""
-" => tagbar plugin
-""""""""""""""""""""""""""""""
-" It needs exuberant-ctags
-map <leader>tt :TagbarToggle <CR>
-let g:tagbar_compact = 1
-let g:tagbar_sort = 0 " Sorted by order of appearence in the file
-
-" Add IDL language support
-let g:tagbar_type_idlang = {
-    \ 'ctagstype' : 'IDL',
-    \ 'kinds'     : [
-        \ 'p:procedures',
-        \ 'f:functions'
-    \ ]
-\ }
-" NOTE: Create also ~/.ctags with the following content:
-"--langdef=IDL
-"--langmap=IDL:.pro
-"--regex-IDL=/^pro[ \t]+([a-zA-Z0-9_:]+)/\1/p,procedure/i
-"--regex-IDL=/^function[ \t]+([a-zA-Z0-9_:]+)/\1/f,function/i
 
 
 """"""""""""""""""""""""""""""
@@ -136,7 +108,9 @@ let g:ale_set_highlights = 1
 " Use :MultipleCursorsFind pattern
 "
 " Select a word in visual mode, press C-n to find repetition
-let g:VM_theme = 'sand'
+Shortcut Select a word in visual mode and find repetition
+      \ noremap <silent> <c-n> :Shortcuts<CR>
+let g:VM_theme = 'lightpurple1'
 let g:VM_highlight_matches = ''
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"]   = '<C-j>'
@@ -157,68 +131,41 @@ let g:VM_single_mode_auto_reset = 0
 " Require tpope/vim-repeat to enable dot repeat support
 "
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-"
-""let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
 let g:EasyMotion_keys='asdghklqwertyuiopzxcvbnmfj'
 "" With this option set, v will match both v and V, but V will match V only
 let g:EasyMotion_smartcase = 1
 
+Shortcut Enable easymotion to search a char and position there
+      \ noremap <silent> f :Shortcuts<CR>
 map f <Plug>(easymotion-s)
 map F <Plug>(easymotion-s2)
 map t <Plug>(easymotion-bd-t)
 map T <Plug>(easymotion-bd-t2)
 
-"" Search with easy motion
-"map  / <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
-"" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-"" Without these mappings, `n` & `N` works fine. (These mappings just provide
-"" different highlight method and have some other features )
-"map  n <Plug>(easymotion-next)
-"map  N <Plug>(easymotion-prev)
-
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-bd-f)
-
-" s{char}{char} to move to {char}{char}
-nmap <Leader>s <Plug>(easymotion-s2)
-
-" Move to line
-map <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>l <Plug>(easymotion-bd-jk)
-
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-bd-w)
-map  <Leader>e <Plug>(easymotion-bd-e)
-nmap <Leader>e <Plug>(easymotion-bd-e)
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ctrlp.Vim plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Shortcut Open search file in current directory
+      \ noremap <silent> <C-t> :Shortcuts<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_map = '<c-o>'
+let g:ctrlp_map = '<c-t>'
 let g:ctrlp_cmd = 'CtrlP'
 map  <Leader>o :CtrlPLine<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VimSession plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Shortcut Save Session
+      \ noremap <silent> <leader>gs :Shortcuts<CR>
+Shortcut Open Session
+      \ noremap <silent> <leader>go :Shortcuts<CR>
+Shortcut Delete Session
+      \ noremap <silent> <leader>gd :Shortcuts<CR>
 nnoremap <leader>gs :SaveSession<cr>
 nnoremap <leader>go :OpenSession<cr>
 nnoremap <leader>gd :DeleteSession<cr>
 :let g:session_autosave = 'no'
 :let g:session_default_overwrite = 1
-
-
-""""""""""""""""""""""""""""""
-" => fzf plugin
-" => vim-visual-multi plugin
-""""""""""""""""""""""""""""""
-nmap <C-t> :Files<CR>
-
 
 " Changing cursor shape per mode
 " " 1 or 0 -> blinking block
@@ -250,4 +197,34 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+
+" Jumping in historic positions list
+" Type +1 to jump newer -1/1 to jump older
+" Also you can use g; and g, to move bakcward and forward in your edit
+" locations.
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
+
+Shortcut Jumps backward
+      \ noremap <silent> <C-o> :Shortcuts<CR>
+Shortcut Jumps forward
+      \ noremap <silent> <C-i> :Shortcuts<CR>
+Shortcut Open list to jump backward or forward
+      \ noremap <silent> <leader>- :Shortcuts<CR>
+nmap <leader>- :call GotoJump()<CR>
+
+" Shortcuts helper definitions
+Shortcut show shortcut menu and run chosen shortcut
+      \ noremap <silent> <Leader><Leader> :Shortcuts<CR>
 
