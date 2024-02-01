@@ -5,11 +5,18 @@ set -x
 
 mkdir -p $HOME/.vim/undodir/
 mkdir -p $HOME/.vim/autoload/
+mkdir -p $HOME/.git-scripts/
 curl -o $HOME/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl -o $HOME/.vim/vimrc https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/vimrc
 curl -o $HOME/.gitconfig https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.gitconfig
 curl -o $HOME/.bashrc https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.bashrc
 curl -o $HOME/.tmux.conf https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.tmux.conf
+curl -o $HOME/.git-scripts/.git-rollback https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-rollback
+curl -o $HOME/.git-scripts/.git-switch https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-switch
+curl -o $HOME/.git-scripts/.git-push https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-push
+curl -o $HOME/.git-scripts/.git-reset https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-reset
+curl -o $HOME/.git-scripts/.git-branch-delete https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-branch-delete
+chmod +x /home/albert/.git-scripts/*
 ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 if [ -d "${HOME}/.vim/" ] || [ -f "${HOME}/.vimrc" ] ; then
   echo "There is already a vim configuration in place! PlugUpdate:"
