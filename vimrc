@@ -228,3 +228,7 @@ nmap <leader>- :call GotoJump()<CR>
 Shortcut show shortcut menu and run chosen shortcut
       \ noremap <silent> <Leader><Leader> :Shortcuts<CR>
 
+" When in visual mode (v), replace the paste command (p) with a command that     
+" deletes the selected text into the black hole register ("_d) before pasting (P).
+" This prevents the selected text from overwriting the contents of the unnamed register.
+vnoremap p "_dP  
