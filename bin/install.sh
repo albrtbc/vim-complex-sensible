@@ -21,7 +21,7 @@ curl -o $HOME/.git-scripts/.git-switch https://raw.githubusercontent.com/albrtbc
 curl -o $HOME/.git-scripts/.git-push https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-push
 curl -o $HOME/.git-scripts/.git-reset https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-reset
 curl -o $HOME/.git-scripts/.git-branch-delete https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-branch-delete
-chmod +x /home/albert/.git-scripts/*
+sudo chmod +x /home/albert/.git-scripts/
 ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 if [ -d "${HOME}/.vim/" ] || [ -f "${HOME}/.vimrc" ] ; then
   echo "There is already a vim configuration in place! PlugUpdate:"
