@@ -232,3 +232,6 @@ Shortcut show shortcut menu and run chosen shortcut
 " deletes the selected text into the black hole register ("_d) before pasting (P).
 " This prevents the selected text from overwriting the contents of the unnamed register.
 vnoremap p "_dP  
+
+" Copy to clipboard                                                              
+set clipboard=unnamedplus

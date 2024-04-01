@@ -4,7 +4,7 @@ set -e
 set -x
 
 sudo apt-get update
-sudo apt-get install -y vim git tmux unzip kitty
+sudo apt-get install -y vim-gtk3 git tmux unzip kitty
 
 mkdir -p $HOME/.vim/undodir/
 mkdir -p $HOME/.vim/autoload/
