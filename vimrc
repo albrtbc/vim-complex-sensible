@@ -21,7 +21,8 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/xolox/vim-misc'
 Plug 'https://github.com/xolox/vim-session'
 Plug 'https://github.com/sunaku/vim-shortcut'
-Plug 'https://github.com/junegunn/fzf'
+"Plug 'https://github.com/junegunn/fzf'
+Plug 'https://github.com/github/copilot.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
