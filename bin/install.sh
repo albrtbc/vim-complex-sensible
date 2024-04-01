@@ -16,12 +16,12 @@ curl -o $HOME/.gitconfig https://raw.githubusercontent.com/albrtbc/vim-complex-s
 curl -o $HOME/.bashrc https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.bashrc
 curl -o $HOME/.tmux.conf https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.tmux.conf
 curl -o $HOME/.conf/kitty/kitty.conf https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/kitty.conf
-curl -o $HOME/.git-scripts/.git-rollback https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-rollback
-curl -o $HOME/.git-scripts/.git-switch https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-switch
-curl -o $HOME/.git-scripts/.git-push https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-push
-curl -o $HOME/.git-scripts/.git-reset https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-reset
-curl -o $HOME/.git-scripts/.git-branch-delete https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-branch-delete
-sudo chmod +x /home/albert/.git-scripts/
+curl -o $HOME/.git-scripts/git-rollback https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-rollback
+curl -o $HOME/.git-scripts/git-switch https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-switch
+curl -o $HOME/.git-scripts/git-push https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-push
+curl -o $HOME/.git-scripts/git-reset https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-reset
+curl -o $HOME/.git-scripts/git-branch-delete https://raw.githubusercontent.com/albrtbc/vim-complex-sensible/master/.git-scripts/git-branch-delete
+sudo chmod -R +x /home/albert/.git-scripts/
 ln -sf $HOME/.vim/vimrc $HOME/.vimrc
 if [ -d "${HOME}/.vim/" ] || [ -f "${HOME}/.vimrc" ] ; then
   echo "There is already a vim configuration in place! PlugUpdate:"
