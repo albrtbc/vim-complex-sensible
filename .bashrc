@@ -71,7 +71,7 @@ if [ "$color_prompt" = yes ]; then
       git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* (*\([^)]*\))*/\1/'
     }
 
-    export PS1="\[\033[00;32m\]\u:\[\033[01;34m\]\w \[\033[00;30m\]\$(markup_git_branch \$(parse_git_branch))\[\033[31;1m\]⟩\[\033[32;1m\]⟩\[\033[33;1m\]⟩\[\033[0m\] "
+    export PS1="\[\033[00;32m\]\u:\[\033[01;34m\]\w \[\033[38;2;222;211;184m\]\$(markup_git_branch \$(parse_git_branch))\[\033[31;1m\]⟩\[\033[32;1m\]⟩\[\033[33;1m\]⟩\[\033[0m\] "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
