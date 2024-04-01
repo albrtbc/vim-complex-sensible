@@ -299,7 +299,8 @@ nmap <C-n> :bnext!<cr>
 " Close the current buffer (also mapped to <leader>bd in the same 'bclose'
 " plugin)
 Shortcut Close current tab / buffer
-      \ noremap <silent> <c-p> :Shortcuts<CR>
+      \ noremap <silent> <c-w> :Shortcuts<CR>
+map <C-w> :Bclose<cr>
 map <leader>bc :Bclose<cr>
 
 " When editing a file, always jump to the last cursor position
