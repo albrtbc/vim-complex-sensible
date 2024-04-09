@@ -146,7 +146,23 @@ endtry
 set background=light
 
 " Set visual selection color
-hi Visual cterm=reverse ctermbg=lightgrey ctermfg=cyan
+" Set visual selection color
+hi Visual cterm=reverse ctermbg=black ctermfg=darkcyan
+hi CursorLine cterm=reverse ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+if &diff
+    "colorscheme evening
+    set background=dark
+    hi Visual cterm=reverse ctermbg=black ctermfg=darkcyan
+    hi CursorLine cterm=reverse ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+    " {{{ Diff highlighting
+    hi DiffAdd    ctermfg=64 ctermbg=194 guifg=#003300 guibg=#DDFFDD gui=none cterm=none
+    hi DiffChange ctermbg=255  guibg=#ececec gui=none   cterm=none
+    hi DiffText   ctermfg=233  ctermbg=189  guifg=#000033 guibg=#DDDDFF gui=none cterm=none
+    hi DiffDelete ctermfg=248 ctermbg=224   guifg=#DDCCCC guibg=#FFDDDD gui=none    cterm=none
+    " }}}
+    
+endif
 
 " Set extra options when running in GUI mode
 if has("gui_running")
